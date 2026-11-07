@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import CTAButtons from "@/components/CTAButtons";
 import PhotoPlaceholder from "@/components/PhotoPlaceholder";
+import Reveal from "@/components/Reveal";
 
 export const metadata: Metadata = {
   title: "About Us",
@@ -11,12 +12,14 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
-      <h1 className="text-3xl font-bold uppercase tracking-wide text-neutral-900">
-        About Us
-      </h1>
+      <Reveal>
+        <h1 className="text-3xl font-bold uppercase tracking-wide text-neutral-900">
+          About Us
+        </h1>
+      </Reveal>
 
       <div className="mt-8 grid gap-10 lg:grid-cols-2">
-        <div>
+        <Reveal>
           <p className="text-neutral-700">
             PSPE Construction Solutions LLC is a construction support company
             focused on layout services, concrete scanning, and core drilling. We
@@ -29,11 +32,13 @@ export default function AboutPage() {
             coordination with other trades on the job site.
           </p>
           <CTAButtons className="mt-8" variant="light" />
-        </div>
-        <PhotoPlaceholder
-          label="team working / personnel using PPE"
-          className="min-h-[260px]"
-        />
+        </Reveal>
+        <Reveal className="delay-150">
+          <PhotoPlaceholder
+            label="team working / personnel using PPE"
+            className="min-h-[260px] rounded-lg"
+          />
+        </Reveal>
       </div>
     </section>
   );

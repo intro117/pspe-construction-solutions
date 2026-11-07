@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import CTAButtons from "@/components/CTAButtons";
+import CTABanner from "@/components/CTABanner";
+import Reveal from "@/components/Reveal";
 
 export const metadata: Metadata = {
   title: "Our Process",
@@ -49,27 +50,40 @@ const STEPS = [
 export default function ProcessPage() {
   return (
     <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
-      <h1 className="text-3xl font-bold uppercase tracking-wide text-neutral-900">
-        How We Work
-      </h1>
-      <p className="mt-4 max-w-3xl text-neutral-600">
-        PSPE doesn&apos;t just show up to drill — we review, prepare, coordinate,
-        and then execute.
-      </p>
+      <Reveal>
+        <h1 className="text-3xl font-bold uppercase tracking-wide text-neutral-900">
+          How We Work
+        </h1>
+        <p className="mt-4 max-w-3xl text-neutral-600">
+          PSPE doesn&apos;t just show up to drill — we review, prepare, coordinate,
+          and then execute.
+        </p>
+      </Reveal>
 
-      <div className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-        {STEPS.map((step) => (
-          <div key={step.number} className="rounded-lg border border-neutral-200 p-6">
-            <span className="text-3xl font-bold text-red-600">{step.number}</span>
-            <h2 className="mt-2 text-lg font-semibold uppercase tracking-wide text-neutral-900">
-              {step.title}
-            </h2>
-            <p className="mt-2 text-sm text-neutral-600">{step.description}</p>
-          </div>
-        ))}
+      <div className="relative mt-14">
+        <div className="absolute left-6 top-2 hidden h-[calc(100%-2rem)] w-px bg-neutral-200 sm:block" />
+        <div className="space-y-10">
+          {STEPS.map((step) => (
+            <Reveal key={step.number}>
+              <div className="relative flex gap-6 sm:pl-0">
+                <span className="relative z-10 flex h-12 w-12 shrink-0 items-center justify-center rounded-full border-2 border-red-600 bg-white text-sm font-bold text-red-600">
+                  {step.number}
+                </span>
+                <div className="rounded-lg border border-neutral-200 p-6 transition-shadow hover:shadow-md">
+                  <h2 className="text-lg font-semibold uppercase tracking-wide text-neutral-900">
+                    {step.title}
+                  </h2>
+                  <p className="mt-2 text-sm text-neutral-600">{step.description}</p>
+                </div>
+              </div>
+            </Reveal>
+          ))}
+        </div>
       </div>
 
-      <CTAButtons className="mt-14" variant="light" />
+      <Reveal className="mt-14">
+        <CTABanner />
+      </Reveal>
     </section>
   );
 }

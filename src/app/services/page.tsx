@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
-import CTAButtons from "@/components/CTAButtons";
+import CTABanner from "@/components/CTABanner";
+import Reveal from "@/components/Reveal";
+import { CheckIcon, DrillIcon, LayoutIcon, ScanIcon } from "@/components/icons";
 
 export const metadata: Metadata = {
   title: "Services | Layout, Concrete Scanning & Core Drilling",
@@ -11,6 +13,7 @@ const SERVICES = [
   {
     id: "layout",
     title: "A. Plan Review & Layout Services",
+    Icon: LayoutIcon,
     intro:
       "We review relevant construction drawings and coordinate layout requirements before work begins. Based on the approved plans and field conditions, we mark designated locations, dimensions, reference points, and installation areas to help crews work accurately and stay coordinated.",
     items: [
@@ -24,6 +27,7 @@ const SERVICES = [
   {
     id: "scanning",
     title: "B. Concrete Scanning",
+    Icon: ScanIcon,
     intro:
       "We scan designated concrete areas to help identify and map potential embedded objects or obstructions before drilling or creating openings. Findings are reviewed with the project team so the work area can be evaluated and the next steps coordinated.",
     items: [
@@ -36,6 +40,7 @@ const SERVICES = [
   {
     id: "drilling",
     title: "C. Core Drilling & Concrete Openings",
+    Icon: DrillIcon,
     intro:
       "We provide core drilling and concrete opening services for construction installations, including plumbing, electrical, HVAC, and other approved building-system requirements. Work is planned around the project layout, site conditions, and available scanning information.",
     items: [
@@ -50,34 +55,45 @@ const SERVICES = [
 export default function ServicesPage() {
   return (
     <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
-      <h1 className="text-3xl font-bold uppercase tracking-wide text-neutral-900">
-        Services
-      </h1>
-      <p className="mt-4 max-w-3xl text-neutral-600">
-        Construction layout services, field layout for contractors, MEP layout,
-        concrete scanning, and core drilling / concrete openings for plumbing,
-        electrical, and HVAC installations across New York, New Jersey, and
-        Connecticut.
-      </p>
+      <Reveal>
+        <h1 className="text-3xl font-bold uppercase tracking-wide text-neutral-900">
+          Services
+        </h1>
+        <p className="mt-4 max-w-3xl text-neutral-600">
+          Construction layout services, field layout for contractors, MEP layout,
+          concrete scanning, and core drilling / concrete openings for plumbing,
+          electrical, and HVAC installations across New York, New Jersey, and
+          Connecticut.
+        </p>
+      </Reveal>
 
       <div className="mt-12 space-y-14">
         {SERVICES.map((service) => (
-          <div key={service.id} id={service.id} className="scroll-mt-24 border-t border-neutral-200 pt-10">
-            <h2 className="text-xl font-bold text-neutral-900">{service.title}</h2>
-            <p className="mt-3 max-w-3xl text-neutral-700">{service.intro}</p>
-            <ul className="mt-4 grid gap-2 sm:grid-cols-2">
-              {service.items.map((item) => (
-                <li key={item} className="flex gap-2 text-sm text-neutral-700">
-                  <span className="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-red-600" />
-                  {item}
-                </li>
-              ))}
-            </ul>
-          </div>
+          <Reveal key={service.id}>
+            <div id={service.id} className="scroll-mt-24 border-t border-neutral-200 pt-10">
+              <div className="flex items-center gap-4">
+                <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-red-50 text-red-600">
+                  <service.Icon className="h-6 w-6" />
+                </span>
+                <h2 className="text-xl font-bold text-neutral-900">{service.title}</h2>
+              </div>
+              <p className="mt-4 max-w-3xl text-neutral-700">{service.intro}</p>
+              <ul className="mt-4 grid gap-3 sm:grid-cols-2">
+                {service.items.map((item) => (
+                  <li key={item} className="flex gap-2 text-sm text-neutral-700">
+                    <CheckIcon className="mt-0.5 h-4 w-4 shrink-0 text-red-600" />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </Reveal>
         ))}
       </div>
 
-      <CTAButtons className="mt-14" variant="light" />
+      <Reveal className="mt-14">
+        <CTABanner />
+      </Reveal>
     </section>
   );
 }
