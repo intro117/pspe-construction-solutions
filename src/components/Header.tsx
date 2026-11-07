@@ -1,0 +1,79 @@
+"use client";
+
+import Link from "next/link";
+import { useState } from "react";
+import { NAV_LINKS, SITE } from "@/lib/site";
+
+export default function Header() {
+  const [open, setOpen] = useState(false);
+
+  return (
+    <header className="sticky top-0 z-50 bg-black border-b border-neutral-800">
+      <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 sm:px-6">
+        <Link href="/" className="text-lg font-bold uppercase tracking-wide text-white">
+          PSPE <span className="text-red-600">Construction</span>
+        </Link>
+
+        <nav className="hidden items-center gap-6 lg:flex">
+          {NAV_LINKS.map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              className="text-sm font-medium uppercase tracking-wide text-neutral-300 hover:text-white transition-colors"
+            >
+              {link.label}
+            </Link>
+          ))}
+        </nav>
+
+        <div className="hidden lg:flex items-center gap-3">
+          <a
+            href={`tel:${SITE.phoneTel}`}
+            className="text-sm font-semibold text-neutral-200 hover:text-white"
+          >
+            {SITE.phoneDisplay}
+          </a>
+          <Link
+            href="/contact"
+            className="rounded-md bg-red-600 px-4 py-2 text-sm font-semibold uppercase tracking-wide text-white hover:bg-red-700 transition-colors"
+          >
+            Request a Quote
+          </Link>
+        </div>
+
+        <button
+          type="button"
+          aria-label="Toggle menu"
+          onClick={() => setOpen((v) => !v)}
+          className="lg:hidden text-white"
+        >
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            {open ? (
+              <path d="M6 6l12 12M18 6l-12 12" strokeLinecap="round" />
+            ) : (
+              <path d="M4 7h16M4 12h16M4 17h16" strokeLinecap="round" />
+            )}
+          </svg>
+        </button>
+      </div>
+
+      {open && (
+        <nav className="lg:hidden border-t border-neutral-800 bg-black px-4 py-4">
+          <ul className="flex flex-col gap-4">
+            {NAV_LINKS.map((link) => (
+              <li key={link.href}>
+                <Link
+                  href={link.href}
+                  onClick={() => setOpen(false)}
+                  className="block text-sm font-medium uppercase tracking-wide text-neutral-300 hover:text-white"
+                >
+                  {link.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </nav>
+      )}
+    </header>
+  );
+}
