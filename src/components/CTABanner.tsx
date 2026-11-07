@@ -9,7 +9,8 @@ export default function CTABanner({
 }) {
   return (
     <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-neutral-900 via-black to-neutral-900 px-6 py-14 text-center sm:px-12">
-      <div className="glow-blob left-1/2 top-0 h-64 w-64 -translate-x-1/2 bg-red-600/25" />
+      <div className="blueprint-grid opacity-50" />
+      <div className="glow-blob glow-blob-a left-1/2 top-0 h-64 w-64 -translate-x-1/2 bg-red-600/30" />
       <div className="relative">
         <h2 className="text-2xl font-bold uppercase tracking-wide text-white">{title}</h2>
         <p className="mt-3 text-neutral-300">{subtitle}</p>

@@ -35,11 +35,12 @@ const AREAS = ["New York", "New Jersey", "Connecticut"];
 export default function Home() {
   return (
     <>
-      <section className="industrial-bg relative overflow-hidden text-white">
-        <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-black/20 via-black/40 to-black" />
-        <div className="glow-blob -top-24 -left-24 h-72 w-72 bg-red-600/25" />
-        <div className="glow-blob top-1/3 -right-32 h-96 w-96 bg-red-700/15" />
-        <div className="relative mx-auto grid max-w-6xl gap-10 px-4 py-20 sm:px-6 lg:grid-cols-2 lg:py-28">
+      <section className="industrial-bg relative flex min-h-[92vh] items-center overflow-hidden text-white lg:min-h-screen">
+        <div className="blueprint-grid" />
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-black/10 via-black/50 to-black" />
+        <div className="glow-blob glow-blob-a -top-24 -left-24 h-80 w-80 bg-red-600/30" />
+        <div className="glow-blob glow-blob-b top-1/3 -right-32 h-[26rem] w-[26rem] bg-red-700/20" />
+        <div className="relative mx-auto grid w-full max-w-6xl gap-10 px-4 py-20 sm:px-6 lg:grid-cols-2 lg:py-28">
           <div className="flex flex-col justify-center">
             <div
               className="fade-up glass-pill inline-flex w-fit items-center gap-2 rounded-full px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.18em] text-neutral-200"
@@ -83,10 +84,14 @@ export default function Home() {
               <CTAButtons />
             </div>
           </div>
-          <PhotoPlaceholder
-            label="professional team/equipment hero photo"
-            className="min-h-[260px] rounded-lg border-neutral-700 bg-neutral-900/60 text-neutral-400 lg:min-h-full"
-          />
+          <div className="relative min-h-[260px] overflow-hidden rounded-lg lg:min-h-full">
+            <div className="radar-sweep absolute left-1/2 top-1/2 h-[140%] w-[140%] -translate-x-1/2 -translate-y-1/2" />
+            <PhotoPlaceholder
+              dark
+              label="professional team/equipment hero photo"
+              className="relative h-full min-h-[260px] lg:min-h-full"
+            />
+          </div>
         </div>
       </section>
 
@@ -117,8 +122,10 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="industrial-bg py-16 text-white">
-        <Reveal className="mx-auto max-w-6xl px-4 sm:px-6">
+      <section className="industrial-bg relative overflow-hidden py-16 text-white">
+        <div className="blueprint-grid opacity-60" />
+        <div className="glow-blob glow-blob-b top-0 right-0 h-72 w-72 bg-red-700/15" />
+        <Reveal className="relative mx-auto max-w-6xl px-4 sm:px-6">
           <h2 className="text-2xl font-bold uppercase tracking-wide">Service Area</h2>
           <p className="mt-4 max-w-3xl text-neutral-300">
             We serve general contractors, subcontractors, construction managers,

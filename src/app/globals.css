@@ -101,6 +101,80 @@ body {
   pointer-events: none;
 }
 
+/* Slow drifting motion for glow blobs — gives the hero a living background */
+@keyframes drift-a {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(40px, 30px) scale(1.15);
+  }
+}
+@keyframes drift-b {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(-50px, -20px) scale(1.1);
+  }
+}
+.glow-blob-a {
+  animation: drift-a 14s ease-in-out infinite;
+}
+.glow-blob-b {
+  animation: drift-b 18s ease-in-out infinite;
+}
+
+/* Blueprint-style grid that slowly pans — nods to layout/plan work */
+@keyframes grid-pan {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 56px 56px;
+  }
+}
+.blueprint-grid {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  background-size: 28px 28px;
+  animation: grid-pan 10s linear infinite;
+}
+
+/* Rotating radar-style sweep — echoes the concrete-scanning service */
+@keyframes radar-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+.radar-sweep {
+  position: absolute;
+  pointer-events: none;
+  border-radius: 9999px;
+  background: conic-gradient(
+    from 0deg,
+    transparent 0deg,
+    rgba(220, 38, 38, 0.22) 18deg,
+    transparent 50deg,
+    transparent 360deg
+  );
+  animation: radar-spin 7s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .glow-blob-a,
+  .glow-blob-b,
+  .blueprint-grid,
+  .radar-sweep {
+    animation: none;
+  }
+}
+
 /* Pulsing live-style dot, used in badges */
 @keyframes pulse-dot {
   0% {
