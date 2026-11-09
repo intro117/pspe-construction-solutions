@@ -1,8 +1,9 @@
-import Link from "next/link";
 import CTAButtons from "@/components/CTAButtons";
 import CTABanner from "@/components/CTABanner";
 import PhotoPlaceholder from "@/components/PhotoPlaceholder";
 import Reveal from "@/components/Reveal";
+import ScanCanvas from "@/components/ScanCanvas";
+import LanternCard from "@/components/LanternCard";
 import { LayoutIcon, ScanIcon, DrillIcon } from "@/components/icons";
 import { SITE } from "@/lib/site";
 
@@ -36,6 +37,7 @@ export default function Home() {
   return (
     <>
       <section className="industrial-bg relative flex min-h-[92vh] items-center overflow-hidden text-white lg:min-h-screen">
+        <ScanCanvas className="absolute inset-0" />
         <div className="blueprint-grid" />
         <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-black/10 via-black/50 to-black" />
         <div className="glow-blob glow-blob-a -top-24 -left-24 h-80 w-80 bg-red-600/30" />
@@ -104,7 +106,7 @@ export default function Home() {
         <div className="mt-8 grid gap-6 sm:grid-cols-3">
           {SERVICES.map((service, i) => (
             <Reveal key={service.title} className={i === 1 ? "delay-100" : i === 2 ? "delay-200" : ""}>
-              <Link
+              <LanternCard
                 href={service.href}
                 className="accent-card group block h-full rounded-lg border border-neutral-200 p-6 transition-all duration-300 hover:-translate-y-1 hover:border-red-600 hover:shadow-xl"
               >
@@ -116,7 +118,7 @@ export default function Home() {
                 <span className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-red-600 transition-transform group-hover:translate-x-1">
                   Learn more →
                 </span>
-              </Link>
+              </LanternCard>
             </Reveal>
           ))}
         </div>
