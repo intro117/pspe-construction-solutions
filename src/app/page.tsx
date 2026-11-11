@@ -55,7 +55,7 @@ export default function Home() {
             Serving NY · NJ · CT
           </div>
           <p
-            className="fade-up mt-5 text-sm font-semibold uppercase tracking-[0.22em] text-red-500"
+            className="fade-up mt-5 text-sm font-semibold uppercase tracking-[0.22em] text-amber-400"
             style={{ animationDelay: "0.1s" }}
           >
             {SITE.tagline}
@@ -101,16 +101,16 @@ export default function Home() {
             <Reveal key={service.title} className={i === 1 ? "delay-100" : i === 2 ? "delay-200" : ""}>
               <LanternCard
                 href={service.href}
-                className="accent-card group block h-full overflow-hidden rounded-lg border border-neutral-200 bg-white transition-all duration-300 hover:-translate-y-1 hover:border-red-600 hover:shadow-xl hover:shadow-red-950/40"
+                className="accent-card group block h-full overflow-hidden rounded-lg border border-neutral-200 bg-white transition-all duration-300 hover:-translate-y-1 hover:border-amber-500 hover:shadow-xl hover:shadow-amber-950/40"
               >
                 <service.Illustration className="aspect-[4/3] w-full border-b border-neutral-800" />
                 <div className="p-6">
-                  <service.Icon className="h-8 w-8 text-red-600" />
+                  <service.Icon className="h-8 w-8 text-amber-500" />
                   <h3 className="mt-4 text-lg font-semibold text-neutral-900">
                     {service.title}
                   </h3>
                   <p className="mt-2 text-sm text-neutral-600">{service.description}</p>
-                  <span className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-red-600 transition-transform group-hover:translate-x-1">
+                  <span className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-amber-500 transition-transform group-hover:translate-x-1">
                     Learn more →
                   </span>
                 </div>
@@ -122,7 +122,7 @@ export default function Home() {
 
       <section className="industrial-bg relative overflow-hidden py-16 text-white">
         <div className="blueprint-grid opacity-60" />
-        <div className="glow-blob glow-blob-b top-0 right-0 h-72 w-72 bg-red-700/15" />
+        <div className="glow-blob glow-blob-b top-0 right-0 h-72 w-72 bg-amber-600/15" />
         <Reveal className="relative mx-auto max-w-6xl px-4 sm:px-6">
           <h2 className="text-2xl font-bold uppercase tracking-wide">Service Area</h2>
           <p className="mt-4 max-w-3xl text-neutral-300">

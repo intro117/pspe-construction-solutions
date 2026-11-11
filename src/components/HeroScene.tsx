@@ -60,17 +60,17 @@ const VERTEX_SHADER = `
 
   vec3 getColor(int s, vec3 rnd, vec3 pos){
     if(s==0){
-      if(rnd.x > 0.72) return mix(vec3(0.86,0.1,0.1), vec3(1.0,0.5,0.4), rnd.z);
+      if(rnd.x > 0.72) return mix(vec3(0.75,0.5,0.03), vec3(1.0,0.85,0.4), rnd.z);
       return mix(vec3(0.55,0.58,0.65), vec3(0.92,0.92,0.96), rnd.z);
     }
     if(s==1){
       float r = length(pos.xz);
       float ringPhase = fract(r*0.22 - uTime*0.9);
       float hot = smoothstep(0.12,0.0,ringPhase);
-      return mix(vec3(0.75,0.08,0.05), vec3(1.0,0.75,0.35), hot);
+      return mix(vec3(0.55,0.32,0.02), vec3(1.0,0.85,0.45), hot);
     }
     float depth = (pos.y + 28.0) / 56.0;
-    return mix(vec3(0.3,0.02,0.02), vec3(1.0,0.35,0.12), 1.0-depth);
+    return mix(vec3(0.22,0.14,0.02), vec3(1.0,0.75,0.25), 1.0-depth);
   }
 
   float getAlpha(int s, vec3 rnd){

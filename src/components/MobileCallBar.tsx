@@ -12,7 +12,7 @@ export default function MobileCallBar() {
       </a>
       <Link
         href="/contact"
-        className="flex-1 py-3 text-center text-sm font-bold uppercase tracking-wide text-white bg-red-600"
+        className="flex-1 py-3 text-center text-sm font-bold uppercase tracking-wide text-neutral-950 bg-amber-500"
       >
         Request a Quote
       </Link>

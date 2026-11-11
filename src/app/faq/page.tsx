@@ -49,7 +49,7 @@ export default function FaqPage() {
               <details className="group py-2">
                 <summary className="flex cursor-pointer list-none items-center justify-between py-4 text-base font-semibold text-neutral-100 marker:content-none">
                   {faq.q}
-                  <ChevronIcon className="h-5 w-5 shrink-0 text-red-500 transition-transform duration-200 group-open:rotate-180" />
+                  <ChevronIcon className="h-5 w-5 shrink-0 text-amber-400 transition-transform duration-200 group-open:rotate-180" />
                 </summary>
                 <p className="pb-4 text-sm text-neutral-400">{faq.a}</p>
               </details>

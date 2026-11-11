@@ -27,7 +27,7 @@ export default function Header() {
     >
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 sm:px-6">
         <Link href="/" className="text-lg font-bold uppercase tracking-wide text-white">
-          PSPE <span className="text-red-600">Construction</span>
+          PSPE <span className="text-amber-500">Construction</span>
         </Link>
 
         <nav className="hidden items-center gap-6 lg:flex">
@@ -51,7 +51,7 @@ export default function Header() {
           </a>
           <Link
             href="/contact"
-            className="rounded-md bg-red-600 px-4 py-2 text-sm font-semibold uppercase tracking-wide text-white hover:bg-red-700 transition-colors"
+            className="rounded-md bg-amber-500 px-4 py-2 text-sm font-semibold uppercase tracking-wide text-neutral-950 hover:bg-amber-400 transition-colors"
           >
             Request a Quote
           </Link>

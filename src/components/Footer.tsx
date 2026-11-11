@@ -8,7 +8,7 @@ export default function Footer() {
         <div className="grid gap-8 sm:grid-cols-3">
           <div>
             <p className="text-base font-bold uppercase tracking-wide text-white">
-              PSPE <span className="text-red-600">Construction</span> Solutions LLC
+              PSPE <span className="text-amber-500">Construction</span> Solutions LLC
             </p>
             <p className="mt-3 text-sm">
               Layout, concrete scanning, and core drilling / concrete openings for

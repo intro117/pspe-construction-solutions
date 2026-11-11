@@ -63,10 +63,10 @@ export default function ProcessPage() {
             {STEPS.map((step) => (
               <Reveal key={step.number}>
                 <div className="relative flex gap-6 sm:pl-0">
-                  <span className="relative z-10 flex h-12 w-12 shrink-0 items-center justify-center rounded-full border-2 border-red-600 bg-neutral-950 text-sm font-bold text-red-500">
+                  <span className="relative z-10 flex h-12 w-12 shrink-0 items-center justify-center rounded-full border-2 border-amber-500 bg-neutral-950 text-sm font-bold text-amber-400">
                     {step.number}
                   </span>
-                  <div className="rounded-lg border border-neutral-800 bg-neutral-900/40 p-6 transition-colors hover:border-red-600">
+                  <div className="rounded-lg border border-neutral-800 bg-neutral-900/40 p-6 transition-colors hover:border-amber-500">
                     <h2 className="text-lg font-semibold uppercase tracking-wide text-white">
                       {step.title}
                     </h2>

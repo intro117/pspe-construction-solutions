@@ -47,7 +47,7 @@ export default function QuoteForm() {
         <select
           name="service"
           required
-          className="mt-1 w-full rounded-md border border-neutral-700 bg-neutral-900 px-3 py-2 text-sm text-neutral-100 placeholder:text-neutral-500 focus:border-red-600 focus:outline-none"
+          className="mt-1 w-full rounded-md border border-neutral-700 bg-neutral-900 px-3 py-2 text-sm text-neutral-100 placeholder:text-neutral-500 focus:border-amber-500 focus:outline-none"
         >
           {SERVICE_OPTIONS.map((option) => (
             <option key={option} value={option}>
@@ -64,7 +64,7 @@ export default function QuoteForm() {
         <textarea
           name="description"
           rows={4}
-          className="mt-1 w-full rounded-md border border-neutral-700 bg-neutral-900 px-3 py-2 text-sm text-neutral-100 placeholder:text-neutral-500 focus:border-red-600 focus:outline-none"
+          className="mt-1 w-full rounded-md border border-neutral-700 bg-neutral-900 px-3 py-2 text-sm text-neutral-100 placeholder:text-neutral-500 focus:border-amber-500 focus:outline-none"
         />
       </div>
 
@@ -83,7 +83,7 @@ export default function QuoteForm() {
 
       <button
         type="submit"
-        className="w-full rounded-md bg-red-600 px-6 py-3 text-sm font-semibold uppercase tracking-wide text-white hover:bg-red-700 transition-colors sm:w-auto"
+        className="w-full rounded-md bg-amber-500 px-6 py-3 text-sm font-semibold uppercase tracking-wide text-neutral-950 hover:bg-amber-400 transition-colors sm:w-auto"
       >
         Submit Request
       </button>
@@ -106,13 +106,13 @@ function Field({
     <div>
       <label className="block text-sm font-medium text-neutral-300">
         {label}
-        {required && <span className="text-red-600"> *</span>}
+        {required && <span className="text-amber-500"> *</span>}
       </label>
       <input
         type={type}
         name={name}
         required={required}
-        className="mt-1 w-full rounded-md border border-neutral-700 bg-neutral-900 px-3 py-2 text-sm text-neutral-100 placeholder:text-neutral-500 focus:border-red-600 focus:outline-none"
+        className="mt-1 w-full rounded-md border border-neutral-700 bg-neutral-900 px-3 py-2 text-sm text-neutral-100 placeholder:text-neutral-500 focus:border-amber-500 focus:outline-none"
       />
     </div>
   );

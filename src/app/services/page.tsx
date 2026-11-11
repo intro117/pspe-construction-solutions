@@ -77,7 +77,7 @@ export default function ServicesPage() {
                 <div className="grid gap-8 lg:grid-cols-2 lg:items-center">
                   <div className={i % 2 === 1 ? "lg:order-2" : ""}>
                     <div className="flex items-center gap-4">
-                      <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-red-950/50 text-red-500">
+                      <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-amber-950/40 text-amber-400">
                         <service.Icon className="h-6 w-6" />
                       </span>
                       <h2 className="text-xl font-bold text-white">{service.title}</h2>
@@ -86,7 +86,7 @@ export default function ServicesPage() {
                     <ul className="mt-4 grid gap-3 sm:grid-cols-2">
                       {service.items.map((item) => (
                         <li key={item} className="flex gap-2 text-sm text-neutral-300">
-                          <CheckIcon className="mt-0.5 h-4 w-4 shrink-0 text-red-500" />
+                          <CheckIcon className="mt-0.5 h-4 w-4 shrink-0 text-amber-400" />
                           {item}
                         </li>
                       ))}

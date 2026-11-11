@@ -37,7 +37,7 @@ export default function GalleryPage() {
                   <PhotoPlaceholder
                     key={i}
                     label={`${category.title} #${i + 1}`}
-                    className="aspect-square overflow-hidden rounded-lg transition-transform duration-300 hover:scale-[1.03] hover:border-red-600 hover:text-red-500"
+                    className="aspect-square overflow-hidden rounded-lg transition-transform duration-300 hover:scale-[1.03] hover:border-amber-500 hover:text-amber-400"
                   />
                 ))}
               </div>

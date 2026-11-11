@@ -30,7 +30,7 @@ export default function ContactPage() {
                   Phone:{" "}
                   <a
                     href={`tel:${SITE.phoneTel}`}
-                    className="font-semibold text-red-500 hover:text-red-400"
+                    className="font-semibold text-amber-400 hover:text-amber-300"
                   >
                     {SITE.phoneDisplay}
                   </a>
@@ -39,7 +39,7 @@ export default function ContactPage() {
                   Email:{" "}
                   <a
                     href={`mailto:${SITE.email}`}
-                    className="font-semibold text-red-500 hover:text-red-400"
+                    className="font-semibold text-amber-400 hover:text-amber-300"
                   >
                     {SITE.email}
                   </a>
