@@ -5,6 +5,11 @@ import Reveal from "@/components/Reveal";
 import ScanCanvas from "@/components/ScanCanvas";
 import LanternCard from "@/components/LanternCard";
 import { LayoutIcon, ScanIcon, DrillIcon } from "@/components/icons";
+import {
+  DrillingIllustration,
+  LayoutIllustration,
+  ScanningIllustration,
+} from "@/components/illustrations";
 import { SITE } from "@/lib/site";
 
 const SERVICES = [
@@ -14,6 +19,7 @@ const SERVICES = [
       "We review relevant construction drawings and coordinate layout requirements before work begins.",
     href: "/services#layout",
     Icon: LayoutIcon,
+    Illustration: LayoutIllustration,
   },
   {
     title: "Concrete Scanning",
@@ -21,6 +27,7 @@ const SERVICES = [
       "We scan designated concrete areas to help identify potential embedded objects or obstructions before drilling.",
     href: "/services#scanning",
     Icon: ScanIcon,
+    Illustration: ScanningIllustration,
   },
   {
     title: "Core Drilling & Concrete Openings",
@@ -28,6 +35,7 @@ const SERVICES = [
       "Core drilling and concrete opening services for plumbing, electrical, HVAC, and other building-system requirements.",
     href: "/services#drilling",
     Icon: DrillIcon,
+    Illustration: DrillingIllustration,
   },
 ];
 
@@ -108,16 +116,19 @@ export default function Home() {
             <Reveal key={service.title} className={i === 1 ? "delay-100" : i === 2 ? "delay-200" : ""}>
               <LanternCard
                 href={service.href}
-                className="accent-card group block h-full rounded-lg border border-neutral-200 p-6 transition-all duration-300 hover:-translate-y-1 hover:border-red-600 hover:shadow-xl"
+                className="accent-card group block h-full overflow-hidden rounded-lg border border-neutral-200 transition-all duration-300 hover:-translate-y-1 hover:border-red-600 hover:shadow-xl"
               >
-                <service.Icon className="h-8 w-8 text-red-600" />
-                <h3 className="mt-4 text-lg font-semibold text-neutral-900">
-                  {service.title}
-                </h3>
-                <p className="mt-2 text-sm text-neutral-600">{service.description}</p>
-                <span className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-red-600 transition-transform group-hover:translate-x-1">
-                  Learn more →
-                </span>
+                <service.Illustration className="aspect-[4/3] w-full border-b border-neutral-800" />
+                <div className="p-6">
+                  <service.Icon className="h-8 w-8 text-red-600" />
+                  <h3 className="mt-4 text-lg font-semibold text-neutral-900">
+                    {service.title}
+                  </h3>
+                  <p className="mt-2 text-sm text-neutral-600">{service.description}</p>
+                  <span className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-red-600 transition-transform group-hover:translate-x-1">
+                    Learn more →
+                  </span>
+                </div>
               </LanternCard>
             </Reveal>
           ))}
