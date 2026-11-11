@@ -1,4 +1,6 @@
+import Image from "next/image";
 import Link from "next/link";
+import pspeLogo from "@/assets/pspe-logo.webp";
 import { NAV_LINKS, SITE } from "@/lib/site";
 
 export default function Footer() {
@@ -7,9 +9,7 @@ export default function Footer() {
       <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6">
         <div className="grid gap-8 sm:grid-cols-3">
           <div>
-            <p className="text-base font-bold uppercase tracking-wide text-white">
-              PSPE <span className="text-amber-500">Construction</span> Solutions LLC
-            </p>
+            <Image src={pspeLogo} alt="PSPE Construction Solutions LLC" className="h-16 w-auto" />
             <p className="mt-3 text-sm">
               Layout, concrete scanning, and core drilling / concrete openings for
               construction projects.

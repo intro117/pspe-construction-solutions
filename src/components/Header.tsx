@@ -1,7 +1,9 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import pspeIcon from "@/assets/pspe-icon.webp";
 import { NAV_LINKS, SITE } from "@/lib/site";
 
 export default function Header() {
@@ -25,12 +27,15 @@ export default function Header() {
           : "bg-black border-transparent"
       }`}
     >
-      <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 sm:px-6">
-        <Link href="/" className="text-lg font-bold uppercase tracking-wide text-white">
-          PSPE <span className="text-amber-500">Construction</span>
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6">
+        <Link href="/" className="flex shrink-0 items-center gap-2">
+          <Image src={pspeIcon} alt="" className="h-9 w-9 shrink-0" priority />
+          <span className="whitespace-nowrap text-base font-bold uppercase tracking-wide text-white">
+            PSPE <span className="text-amber-500">Construction</span>
+          </span>
         </Link>
 
-        <nav className="hidden items-center gap-6 lg:flex">
+        <nav className="hidden items-center gap-5 lg:flex">
           {NAV_LINKS.map((link) => (
             <Link
               key={link.href}
