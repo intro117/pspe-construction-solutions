@@ -175,6 +175,14 @@ body {
   }
 }
 
+/* WebGL hero scene: shows a soft static gradient until three.js takes over
+   (see HeroScene.tsx); if JS/WebGL never activates (no-JS, reduced-motion,
+   save-data, old browser) this gradient is the final, static background. */
+.cv-fallback {
+  background: radial-gradient(ellipse 60% 50% at 30% 20%, rgba(220, 38, 38, 0.14), transparent 60%),
+    radial-gradient(ellipse 55% 50% at 75% 70%, rgba(220, 38, 38, 0.08), transparent 55%);
+}
+
 /* Pulsing live-style dot, used in badges */
 @keyframes pulse-dot {
   0% {

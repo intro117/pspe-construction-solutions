@@ -1,8 +1,7 @@
 import CTAButtons from "@/components/CTAButtons";
 import CTABanner from "@/components/CTABanner";
-import PhotoPlaceholder from "@/components/PhotoPlaceholder";
 import Reveal from "@/components/Reveal";
-import ScanCanvas from "@/components/ScanCanvas";
+import HeroScene from "@/components/HeroScene";
 import LanternCard from "@/components/LanternCard";
 import { LayoutIcon, ScanIcon, DrillIcon } from "@/components/icons";
 import {
@@ -44,63 +43,49 @@ const AREAS = ["New York", "New Jersey", "Connecticut"];
 export default function Home() {
   return (
     <>
-      <section className="industrial-bg relative flex min-h-[92vh] items-center overflow-hidden text-white lg:min-h-screen">
-        <ScanCanvas className="absolute inset-0" />
-        <div className="blueprint-grid" />
-        <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-black/10 via-black/50 to-black" />
-        <div className="glow-blob glow-blob-a -top-24 -left-24 h-80 w-80 bg-red-600/30" />
-        <div className="glow-blob glow-blob-b top-1/3 -right-32 h-[26rem] w-[26rem] bg-red-700/20" />
-        <div className="relative mx-auto grid w-full max-w-6xl gap-10 px-4 py-20 sm:px-6 lg:grid-cols-2 lg:py-28">
-          <div className="flex flex-col justify-center">
-            <div
-              className="fade-up glass-pill inline-flex w-fit items-center gap-2 rounded-full px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.18em] text-neutral-200"
-              style={{ animationDelay: "0.05s" }}
-            >
-              <span className="pulse-dot" />
-              Serving NY · NJ · CT
-            </div>
-            <p
-              className="fade-up mt-5 text-sm font-semibold uppercase tracking-[0.22em] text-red-500"
-              style={{ animationDelay: "0.1s" }}
-            >
-              {SITE.tagline}
-            </p>
-            <h1
-              className="fade-up mt-3 font-bold leading-[1.05] text-[clamp(2.1rem,5.5vw,3.75rem)]"
-              style={{ animationDelay: "0.15s" }}
-            >
-              Layout, <span className="text-gradient">Concrete Scanning</span> &amp;
-              Core Drilling for Construction Projects
-            </h1>
-            <p
-              className="fade-up mt-5 max-w-xl text-neutral-300"
-              style={{ animationDelay: "0.28s" }}
-            >
-              PSPE Construction Solutions LLC provides professional layout, concrete
-              scanning, and core drilling services for construction projects across New
-              York, New Jersey, and Connecticut. From plan review and accurate field
-              layout to subsurface scanning and precise concrete openings, we help
-              contractors plan the work, identify potential obstacles, and complete
-              each task with a strong focus on safety, accuracy, and job-site
-              coordination.
-            </p>
-            <p
-              className="fade-up mt-3 text-sm italic text-neutral-400"
-              style={{ animationDelay: "0.38s" }}
-            >
-              From plans to precise openings — one coordinated solution.
-            </p>
-            <div className="fade-up mt-8" style={{ animationDelay: "0.48s" }}>
-              <CTAButtons />
-            </div>
+      <section className="relative flex min-h-[92vh] items-center overflow-hidden bg-black text-white lg:min-h-screen">
+        <HeroScene className="absolute inset-0 h-full w-full" />
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-black/20 via-black/55 to-black" />
+        <div className="relative mx-auto flex w-full max-w-4xl flex-col items-center px-4 py-20 text-center sm:px-6 lg:py-28">
+          <div
+            className="fade-up glass-pill inline-flex w-fit items-center gap-2 rounded-full px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.18em] text-neutral-200"
+            style={{ animationDelay: "0.05s" }}
+          >
+            <span className="pulse-dot" />
+            Serving NY · NJ · CT
           </div>
-          <div className="relative min-h-[260px] overflow-hidden rounded-lg lg:min-h-full">
-            <div className="radar-sweep absolute left-1/2 top-1/2 h-[140%] w-[140%] -translate-x-1/2 -translate-y-1/2" />
-            <PhotoPlaceholder
-              dark
-              label="professional team/equipment hero photo"
-              className="relative h-full min-h-[260px] lg:min-h-full"
-            />
+          <p
+            className="fade-up mt-5 text-sm font-semibold uppercase tracking-[0.22em] text-red-500"
+            style={{ animationDelay: "0.1s" }}
+          >
+            {SITE.tagline}
+          </p>
+          <h1
+            className="fade-up mt-3 font-bold leading-[1.05] text-[clamp(2.3rem,6vw,4.25rem)]"
+            style={{ animationDelay: "0.15s" }}
+          >
+            Layout, <span className="text-gradient">Concrete Scanning</span> &amp;
+            Core Drilling for Construction Projects
+          </h1>
+          <p
+            className="fade-up mt-5 max-w-2xl text-neutral-300"
+            style={{ animationDelay: "0.28s" }}
+          >
+            PSPE Construction Solutions LLC provides professional layout, concrete
+            scanning, and core drilling services for construction projects across New
+            York, New Jersey, and Connecticut. From plan review and accurate field
+            layout to subsurface scanning and precise concrete openings, we help
+            contractors plan the work, identify potential obstacles, and complete each
+            task with a strong focus on safety, accuracy, and job-site coordination.
+          </p>
+          <p
+            className="fade-up mt-3 text-sm italic text-neutral-400"
+            style={{ animationDelay: "0.38s" }}
+          >
+            From plans to precise openings — one coordinated solution.
+          </p>
+          <div className="fade-up mt-8" style={{ animationDelay: "0.48s" }}>
+            <CTAButtons />
           </div>
         </div>
       </section>
