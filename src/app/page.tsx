@@ -92,7 +92,7 @@ export default function Home() {
 
       <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
         <Reveal>
-          <h2 className="text-2xl font-bold uppercase tracking-wide text-neutral-900">
+          <h2 className="text-2xl font-bold uppercase tracking-wide text-white">
             Our Services
           </h2>
         </Reveal>
@@ -101,7 +101,7 @@ export default function Home() {
             <Reveal key={service.title} className={i === 1 ? "delay-100" : i === 2 ? "delay-200" : ""}>
               <LanternCard
                 href={service.href}
-                className="accent-card group block h-full overflow-hidden rounded-lg border border-neutral-200 transition-all duration-300 hover:-translate-y-1 hover:border-red-600 hover:shadow-xl"
+                className="accent-card group block h-full overflow-hidden rounded-lg border border-neutral-200 bg-white transition-all duration-300 hover:-translate-y-1 hover:border-red-600 hover:shadow-xl hover:shadow-red-950/40"
               >
                 <service.Illustration className="aspect-[4/3] w-full border-b border-neutral-800" />
                 <div className="p-6">

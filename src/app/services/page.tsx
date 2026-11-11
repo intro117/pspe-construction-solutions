@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import CTABanner from "@/components/CTABanner";
+import PageHero from "@/components/PageHero";
 import Reveal from "@/components/Reveal";
 import { CheckIcon, DrillIcon, LayoutIcon, ScanIcon } from "@/components/icons";
 import {
@@ -62,53 +63,48 @@ const SERVICES = [
 
 export default function ServicesPage() {
   return (
-    <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
-      <Reveal>
-        <h1 className="text-3xl font-bold uppercase tracking-wide text-neutral-900">
-          Services
-        </h1>
-        <p className="mt-4 max-w-3xl text-neutral-600">
-          Construction layout services, field layout for contractors, MEP layout,
-          concrete scanning, and core drilling / concrete openings for plumbing,
-          electrical, and HVAC installations across New York, New Jersey, and
-          Connecticut.
-        </p>
-      </Reveal>
+    <>
+      <PageHero
+        title="Services"
+        description="Construction layout services, field layout for contractors, MEP layout, concrete scanning, and core drilling / concrete openings for plumbing, electrical, and HVAC installations across New York, New Jersey, and Connecticut."
+      />
 
-      <div className="mt-12 space-y-14">
-        {SERVICES.map((service, i) => (
-          <Reveal key={service.id}>
-            <div id={service.id} className="scroll-mt-24 border-t border-neutral-200 pt-10">
-              <div className="grid gap-8 lg:grid-cols-2 lg:items-center">
-                <div className={i % 2 === 1 ? "lg:order-2" : ""}>
-                  <div className="flex items-center gap-4">
-                    <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-red-50 text-red-600">
-                      <service.Icon className="h-6 w-6" />
-                    </span>
-                    <h2 className="text-xl font-bold text-neutral-900">{service.title}</h2>
+      <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
+        <div className="space-y-14">
+          {SERVICES.map((service, i) => (
+            <Reveal key={service.id}>
+              <div id={service.id} className="scroll-mt-24 border-t border-neutral-800 pt-10">
+                <div className="grid gap-8 lg:grid-cols-2 lg:items-center">
+                  <div className={i % 2 === 1 ? "lg:order-2" : ""}>
+                    <div className="flex items-center gap-4">
+                      <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-red-950/50 text-red-500">
+                        <service.Icon className="h-6 w-6" />
+                      </span>
+                      <h2 className="text-xl font-bold text-white">{service.title}</h2>
+                    </div>
+                    <p className="mt-4 max-w-xl text-neutral-300">{service.intro}</p>
+                    <ul className="mt-4 grid gap-3 sm:grid-cols-2">
+                      {service.items.map((item) => (
+                        <li key={item} className="flex gap-2 text-sm text-neutral-300">
+                          <CheckIcon className="mt-0.5 h-4 w-4 shrink-0 text-red-500" />
+                          {item}
+                        </li>
+                      ))}
+                    </ul>
                   </div>
-                  <p className="mt-4 max-w-xl text-neutral-700">{service.intro}</p>
-                  <ul className="mt-4 grid gap-3 sm:grid-cols-2">
-                    {service.items.map((item) => (
-                      <li key={item} className="flex gap-2 text-sm text-neutral-700">
-                        <CheckIcon className="mt-0.5 h-4 w-4 shrink-0 text-red-600" />
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
+                  <service.Illustration
+                    className={`w-full rounded-lg border border-neutral-800 ${i % 2 === 1 ? "lg:order-1" : ""}`}
+                  />
                 </div>
-                <service.Illustration
-                  className={`w-full rounded-lg border border-neutral-800 ${i % 2 === 1 ? "lg:order-1" : ""}`}
-                />
               </div>
-            </div>
-          </Reveal>
-        ))}
-      </div>
+            </Reveal>
+          ))}
+        </div>
 
-      <Reveal className="mt-14">
-        <CTABanner />
-      </Reveal>
-    </section>
+        <Reveal className="mt-14">
+          <CTABanner />
+        </Reveal>
+      </section>
+    </>
   );
 }

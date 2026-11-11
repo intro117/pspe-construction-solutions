@@ -1,7 +1,7 @@
 export default function PhotoPlaceholder({
   label,
   className = "",
-  dark = false,
+  dark = true,
 }: {
   label: string;
   className?: string;

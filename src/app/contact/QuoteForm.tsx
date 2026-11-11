@@ -21,7 +21,7 @@ export default function QuoteForm() {
 
   if (submitted) {
     return (
-      <div className="rounded-lg border border-green-200 bg-green-50 p-6 text-green-800">
+      <div className="rounded-lg border border-green-900 bg-green-950/40 p-6 text-green-300">
         Thank you for contacting PSPE Construction Solutions LLC. We have received
         your request and will follow up as soon as possible.
       </div>
@@ -41,13 +41,13 @@ export default function QuoteForm() {
       <Field label="Project location (city / state)" name="location" />
 
       <div>
-        <label className="block text-sm font-medium text-neutral-700">
+        <label className="block text-sm font-medium text-neutral-300">
           Service needed
         </label>
         <select
           name="service"
           required
-          className="mt-1 w-full rounded-md border border-neutral-300 px-3 py-2 text-sm focus:border-red-600 focus:outline-none"
+          className="mt-1 w-full rounded-md border border-neutral-700 bg-neutral-900 px-3 py-2 text-sm text-neutral-100 placeholder:text-neutral-500 focus:border-red-600 focus:outline-none"
         >
           {SERVICE_OPTIONS.map((option) => (
             <option key={option} value={option}>
@@ -58,26 +58,26 @@ export default function QuoteForm() {
       </div>
 
       <div>
-        <label className="block text-sm font-medium text-neutral-700">
+        <label className="block text-sm font-medium text-neutral-300">
           Brief project description
         </label>
         <textarea
           name="description"
           rows={4}
-          className="mt-1 w-full rounded-md border border-neutral-300 px-3 py-2 text-sm focus:border-red-600 focus:outline-none"
+          className="mt-1 w-full rounded-md border border-neutral-700 bg-neutral-900 px-3 py-2 text-sm text-neutral-100 placeholder:text-neutral-500 focus:border-red-600 focus:outline-none"
         />
       </div>
 
       <Field label="Requested date or schedule" name="schedule" />
 
       <div>
-        <label className="block text-sm font-medium text-neutral-700">
+        <label className="block text-sm font-medium text-neutral-300">
           File upload (plans, photos, or documents — optional)
         </label>
         <input
           type="file"
           name="attachment"
-          className="mt-1 w-full text-sm text-neutral-600"
+          className="mt-1 w-full text-sm text-neutral-400"
         />
       </div>
 
@@ -104,7 +104,7 @@ function Field({
 }) {
   return (
     <div>
-      <label className="block text-sm font-medium text-neutral-700">
+      <label className="block text-sm font-medium text-neutral-300">
         {label}
         {required && <span className="text-red-600"> *</span>}
       </label>
@@ -112,7 +112,7 @@ function Field({
         type={type}
         name={name}
         required={required}
-        className="mt-1 w-full rounded-md border border-neutral-300 px-3 py-2 text-sm focus:border-red-600 focus:outline-none"
+        className="mt-1 w-full rounded-md border border-neutral-700 bg-neutral-900 px-3 py-2 text-sm text-neutral-100 placeholder:text-neutral-500 focus:border-red-600 focus:outline-none"
       />
     </div>
   );

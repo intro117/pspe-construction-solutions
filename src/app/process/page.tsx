@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import CTABanner from "@/components/CTABanner";
+import PageHero from "@/components/PageHero";
 import Reveal from "@/components/Reveal";
 
 export const metadata: Metadata = {
@@ -49,41 +50,38 @@ const STEPS = [
 
 export default function ProcessPage() {
   return (
-    <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
-      <Reveal>
-        <h1 className="text-3xl font-bold uppercase tracking-wide text-neutral-900">
-          How We Work
-        </h1>
-        <p className="mt-4 max-w-3xl text-neutral-600">
-          PSPE doesn&apos;t just show up to drill — we review, prepare, coordinate,
-          and then execute.
-        </p>
-      </Reveal>
+    <>
+      <PageHero
+        title="How We Work"
+        description="PSPE doesn't just show up to drill — we review, prepare, coordinate, and then execute."
+      />
 
-      <div className="relative mt-14">
-        <div className="absolute left-6 top-2 hidden h-[calc(100%-2rem)] w-px bg-neutral-200 sm:block" />
-        <div className="space-y-10">
-          {STEPS.map((step) => (
-            <Reveal key={step.number}>
-              <div className="relative flex gap-6 sm:pl-0">
-                <span className="relative z-10 flex h-12 w-12 shrink-0 items-center justify-center rounded-full border-2 border-red-600 bg-white text-sm font-bold text-red-600">
-                  {step.number}
-                </span>
-                <div className="rounded-lg border border-neutral-200 p-6 transition-shadow hover:shadow-md">
-                  <h2 className="text-lg font-semibold uppercase tracking-wide text-neutral-900">
-                    {step.title}
-                  </h2>
-                  <p className="mt-2 text-sm text-neutral-600">{step.description}</p>
+      <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
+        <div className="relative">
+          <div className="absolute left-6 top-2 hidden h-[calc(100%-2rem)] w-px bg-neutral-800 sm:block" />
+          <div className="space-y-10">
+            {STEPS.map((step) => (
+              <Reveal key={step.number}>
+                <div className="relative flex gap-6 sm:pl-0">
+                  <span className="relative z-10 flex h-12 w-12 shrink-0 items-center justify-center rounded-full border-2 border-red-600 bg-neutral-950 text-sm font-bold text-red-500">
+                    {step.number}
+                  </span>
+                  <div className="rounded-lg border border-neutral-800 bg-neutral-900/40 p-6 transition-colors hover:border-red-600">
+                    <h2 className="text-lg font-semibold uppercase tracking-wide text-white">
+                      {step.title}
+                    </h2>
+                    <p className="mt-2 text-sm text-neutral-400">{step.description}</p>
+                  </div>
                 </div>
-              </div>
-            </Reveal>
-          ))}
+              </Reveal>
+            ))}
+          </div>
         </div>
-      </div>
 
-      <Reveal className="mt-14">
-        <CTABanner />
-      </Reveal>
-    </section>
+        <Reveal className="mt-14">
+          <CTABanner />
+        </Reveal>
+      </section>
+    </>
   );
 }

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import CTABanner from "@/components/CTABanner";
+import PageHero from "@/components/PageHero";
 import Reveal from "@/components/Reveal";
 import { ChevronIcon } from "@/components/icons";
 
@@ -38,30 +39,28 @@ const FAQS = [
 
 export default function FaqPage() {
   return (
-    <section className="mx-auto max-w-4xl px-4 py-16 sm:px-6">
-      <Reveal>
-        <h1 className="text-3xl font-bold uppercase tracking-wide text-neutral-900">
-          Frequently Asked Questions
-        </h1>
-      </Reveal>
+    <>
+      <PageHero title="Frequently Asked Questions" />
 
-      <div className="mt-10 divide-y divide-neutral-200">
-        {FAQS.map((faq) => (
-          <Reveal key={faq.q}>
-            <details className="group py-2">
-              <summary className="flex cursor-pointer list-none items-center justify-between py-4 text-base font-semibold text-neutral-900 marker:content-none">
-                {faq.q}
-                <ChevronIcon className="h-5 w-5 shrink-0 text-red-600 transition-transform duration-200 group-open:rotate-180" />
-              </summary>
-              <p className="pb-4 text-sm text-neutral-600">{faq.a}</p>
-            </details>
-          </Reveal>
-        ))}
-      </div>
+      <section className="mx-auto max-w-4xl px-4 py-16 sm:px-6">
+        <div className="divide-y divide-neutral-800">
+          {FAQS.map((faq) => (
+            <Reveal key={faq.q}>
+              <details className="group py-2">
+                <summary className="flex cursor-pointer list-none items-center justify-between py-4 text-base font-semibold text-neutral-100 marker:content-none">
+                  {faq.q}
+                  <ChevronIcon className="h-5 w-5 shrink-0 text-red-500 transition-transform duration-200 group-open:rotate-180" />
+                </summary>
+                <p className="pb-4 text-sm text-neutral-400">{faq.a}</p>
+              </details>
+            </Reveal>
+          ))}
+        </div>
 
-      <Reveal className="mt-10">
-        <CTABanner />
-      </Reveal>
-    </section>
+        <Reveal className="mt-10">
+          <CTABanner />
+        </Reveal>
+      </section>
+    </>
   );
 }
