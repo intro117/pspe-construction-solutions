@@ -35,6 +35,36 @@ export function CheckIcon({ className = "h-4 w-4" }: { className?: string }) {
   );
 }
 
+export function PhoneIcon({ className = "h-4 w-4" }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className={className}>
+      <path
+        d="M4 5c0-.6.4-1 1-1h3l2 4-2 1.5a10 10 0 0 0 5 5L14 12l4 2v3c0 .6-.4 1-1 1C9.5 18 4 12.5 4 5Z"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
+export function MailIcon({ className = "h-4 w-4" }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className={className}>
+      <rect x="3" y="5" width="18" height="14" rx="1.5" />
+      <path d="M3.5 6.5 12 13l8.5-6.5" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  );
+}
+
+export function PinIcon({ className = "h-4 w-4" }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className={className}>
+      <path d="M12 21s7-6.2 7-11.5A7 7 0 0 0 5 9.5C5 14.8 12 21 12 21Z" strokeLinecap="round" strokeLinejoin="round" />
+      <circle cx="12" cy="9.5" r="2.4" />
+    </svg>
+  );
+}
+
 export function ChevronIcon({ className = "h-5 w-5" }: { className?: string }) {
   return (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className={className}>

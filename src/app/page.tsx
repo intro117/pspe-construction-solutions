@@ -46,7 +46,7 @@ export default function Home() {
       <section className="relative flex min-h-[92vh] items-center overflow-hidden bg-black text-white lg:min-h-screen">
         <HeroScene className="absolute inset-0 h-full w-full" />
         <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-black/20 via-black/55 to-black" />
-        <div className="relative mx-auto flex w-full max-w-4xl flex-col items-center px-4 py-20 text-center sm:px-6 lg:py-28">
+        <div className="relative mx-auto flex w-full max-w-4xl flex-col items-center px-4 pb-16 pt-10 text-center sm:px-6 sm:pt-20 lg:py-28">
           <div
             className="fade-up glass-pill inline-flex w-fit items-center gap-2 rounded-full px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.18em] text-neutral-200"
             style={{ animationDelay: "0.05s" }}
@@ -68,7 +68,7 @@ export default function Home() {
             Core Drilling for Construction Projects
           </h1>
           <p
-            className="fade-up mt-5 max-w-2xl text-neutral-300"
+            className="fade-up mt-4 max-w-2xl text-sm text-neutral-300 sm:mt-5 sm:text-base"
             style={{ animationDelay: "0.28s" }}
           >
             PSPE Construction Solutions LLC provides professional layout, concrete
@@ -79,13 +79,23 @@ export default function Home() {
             task with a strong focus on safety, accuracy, and job-site coordination.
           </p>
           <p
-            className="fade-up mt-3 text-sm italic text-neutral-400"
+            className="fade-up mt-3 hidden text-sm italic text-neutral-400 sm:block"
             style={{ animationDelay: "0.38s" }}
           >
             From plans to precise openings — one coordinated solution.
           </p>
-          <div className="fade-up mt-8" style={{ animationDelay: "0.48s" }}>
+          <div className="fade-up mt-5 sm:mt-8" style={{ animationDelay: "0.48s" }}>
             <CTAButtons />
+          </div>
+          <div
+            className="fade-up mt-7 flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-xs font-semibold uppercase tracking-[0.2em] text-neutral-400 sm:mt-10"
+            style={{ animationDelay: "0.56s" }}
+          >
+            <span>Precision</span>
+            <span className="h-1 w-1 rounded-full bg-amber-500" />
+            <span>Safety</span>
+            <span className="h-1 w-1 rounded-full bg-amber-500" />
+            <span>Experience</span>
           </div>
         </div>
       </section>

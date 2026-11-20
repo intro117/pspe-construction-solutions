@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { SITE } from "@/lib/site";
 import PageHero from "@/components/PageHero";
 import Reveal from "@/components/Reveal";
+import { MailIcon, PhoneIcon, PinIcon } from "@/components/icons";
 import QuoteForm from "./QuoteForm";
 
 export const metadata: Metadata = {
@@ -25,9 +26,11 @@ export default function ContactPage() {
               <h2 className="text-lg font-semibold uppercase tracking-wide text-white">
                 PSPE Construction Solutions LLC
               </h2>
-              <ul className="mt-4 space-y-3 text-neutral-300">
-                <li>
-                  Phone:{" "}
+              <ul className="mt-5 space-y-4 text-neutral-300">
+                <li className="flex items-center gap-3">
+                  <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-amber-950/40 text-amber-400">
+                    <PhoneIcon />
+                  </span>
                   <a
                     href={`tel:${SITE.phoneTel}`}
                     className="font-semibold text-amber-400 hover:text-amber-300"
@@ -35,8 +38,10 @@ export default function ContactPage() {
                     {SITE.phoneDisplay}
                   </a>
                 </li>
-                <li>
-                  Email:{" "}
+                <li className="flex items-center gap-3">
+                  <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-amber-950/40 text-amber-400">
+                    <MailIcon />
+                  </span>
                   <a
                     href={`mailto:${SITE.email}`}
                     className="font-semibold text-amber-400 hover:text-amber-300"
@@ -44,7 +49,12 @@ export default function ContactPage() {
                     {SITE.email}
                   </a>
                 </li>
-                <li>Service Areas: New York | New Jersey | Connecticut</li>
+                <li className="flex items-center gap-3">
+                  <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-amber-950/40 text-amber-400">
+                    <PinIcon />
+                  </span>
+                  Service Areas: New York | New Jersey | Connecticut
+                </li>
               </ul>
             </div>
           </Reveal>
