@@ -5,7 +5,11 @@ import CTABanner from "@/components/CTABanner";
 import PageHero from "@/components/PageHero";
 import Reveal from "@/components/Reveal";
 import layoutFieldMarking1 from "@/assets/gallery/layout-field-marking-1.jpg";
+import layoutFieldMarking2 from "@/assets/gallery/layout-field-marking-2.jpg";
+import layoutFieldMarking3 from "@/assets/gallery/layout-field-marking-3.jpg";
 import concreteScanning1 from "@/assets/gallery/concrete-scanning-1.jpg";
+import concreteScanning2 from "@/assets/gallery/concrete-scanning-2.jpg";
+import concreteScanning3 from "@/assets/gallery/concrete-scanning-3.jpg";
 import coreDrilling1 from "@/assets/gallery/core-drilling-1.jpg";
 import coreDrilling2 from "@/assets/gallery/core-drilling-2.jpg";
 import coreDrilling3 from "@/assets/gallery/core-drilling-3.jpg";
@@ -19,8 +23,14 @@ export const metadata: Metadata = {
 };
 
 const CATEGORIES = [
-  { title: "Layout / Field Marking", photos: [layoutFieldMarking1, null, null] },
-  { title: "Concrete Scanning", photos: [concreteScanning1, null, null] },
+  {
+    title: "Layout / Field Marking",
+    photos: [layoutFieldMarking1, layoutFieldMarking2, layoutFieldMarking3],
+  },
+  {
+    title: "Concrete Scanning",
+    photos: [concreteScanning1, concreteScanning2, concreteScanning3],
+  },
   { title: "Core Drilling", photos: [coreDrilling1, coreDrilling2, coreDrilling3] },
   {
     title: "Completed Openings / Job-Site Work",

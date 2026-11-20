@@ -1,14 +1,13 @@
+import Image from "next/image";
 import CTAButtons from "@/components/CTAButtons";
 import CTABanner from "@/components/CTABanner";
 import Reveal from "@/components/Reveal";
 import HeroScene from "@/components/HeroScene";
 import LanternCard from "@/components/LanternCard";
 import { LayoutIcon, ScanIcon, DrillIcon } from "@/components/icons";
-import {
-  DrillingIllustration,
-  LayoutIllustration,
-  ScanningIllustration,
-} from "@/components/illustrations";
+import homeLayout from "@/assets/gallery/home-layout.jpg";
+import homeScanning from "@/assets/gallery/home-scanning.jpg";
+import homeDrilling from "@/assets/gallery/home-drilling.jpg";
 import { SITE } from "@/lib/site";
 
 const SERVICES = [
@@ -18,7 +17,7 @@ const SERVICES = [
       "We review relevant construction drawings and coordinate layout requirements before work begins.",
     href: "/services#layout",
     Icon: LayoutIcon,
-    Illustration: LayoutIllustration,
+    photo: homeLayout,
   },
   {
     title: "Concrete Scanning",
@@ -26,7 +25,7 @@ const SERVICES = [
       "We scan designated concrete areas to help identify potential embedded objects or obstructions before drilling.",
     href: "/services#scanning",
     Icon: ScanIcon,
-    Illustration: ScanningIllustration,
+    photo: homeScanning,
   },
   {
     title: "Core Drilling & Concrete Openings",
@@ -34,7 +33,7 @@ const SERVICES = [
       "Core drilling and concrete opening services for plumbing, electrical, HVAC, and other building-system requirements.",
     href: "/services#drilling",
     Icon: DrillIcon,
-    Illustration: DrillingIllustration,
+    photo: homeDrilling,
   },
 ];
 
@@ -118,7 +117,15 @@ export default function Home() {
                 href={service.href}
                 className="accent-card group block h-full overflow-hidden rounded-lg border border-neutral-200 bg-white transition-all duration-300 hover:-translate-y-1 hover:border-amber-500 hover:shadow-xl hover:shadow-amber-950/40"
               >
-                <service.Illustration className="aspect-[4/3] w-full border-b border-neutral-800" />
+                <div className="relative aspect-[4/3] w-full overflow-hidden border-b border-neutral-800">
+                  <Image
+                    src={service.photo}
+                    alt={service.title}
+                    fill
+                    className="object-cover transition-transform duration-300 group-hover:scale-105"
+                    sizes="(min-width: 640px) 33vw, 100vw"
+                  />
+                </div>
                 <div className="p-6">
                   <service.Icon className="h-8 w-8 text-amber-500" />
                   <h3 className="mt-4 text-lg font-semibold text-neutral-900">
