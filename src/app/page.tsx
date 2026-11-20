@@ -98,6 +98,11 @@ export default function Home() {
             <span>Experience</span>
           </div>
         </div>
+        <div className="scroll-cue absolute bottom-6 left-1/2 hidden -translate-x-1/2 sm:block">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className="text-neutral-400">
+            <path d="M6 9l6 6 6-6" strokeLinecap="round" strokeLinejoin="round" />
+          </svg>
+        </div>
       </section>
 
       <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
@@ -145,7 +150,7 @@ export default function Home() {
             {AREAS.map((area) => (
               <span
                 key={area}
-                className="rounded-full border border-neutral-700 px-4 py-1.5 text-sm font-medium uppercase tracking-wide text-neutral-200"
+                className="rounded-full border border-neutral-700 px-4 py-1.5 text-sm font-medium uppercase tracking-wide text-neutral-200 transition-all duration-200 hover:-translate-y-0.5 hover:border-amber-500 hover:text-amber-400"
               >
                 {area}
               </span>

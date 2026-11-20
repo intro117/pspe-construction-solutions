@@ -208,6 +208,27 @@ body {
   }
 }
 
+/* Bouncing scroll cue at the bottom of the hero */
+@keyframes scroll-cue {
+  0%,
+  100% {
+    transform: translateY(0);
+    opacity: 0.5;
+  }
+  50% {
+    transform: translateY(8px);
+    opacity: 1;
+  }
+}
+.scroll-cue {
+  animation: scroll-cue 2s ease-in-out infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .scroll-cue {
+    animation: none;
+  }
+}
+
 /* Frosted glass pill */
 .glass-pill {
   background: rgba(255, 255, 255, 0.06);

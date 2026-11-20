@@ -57,6 +57,17 @@ export default function ContactPage() {
                 </li>
               </ul>
             </div>
+
+            <div className="mt-6 overflow-hidden rounded-lg border border-neutral-800">
+              <iframe
+                title="PSPE Construction Solutions LLC service area — New York, New Jersey, and Connecticut"
+                src="https://www.google.com/maps?q=New+York,+NY&z=8&output=embed"
+                className="h-72 w-full grayscale invert-[0.92] contrast-[0.9] sm:h-80"
+                style={{ border: 0 }}
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              />
+            </div>
           </Reveal>
 
           <Reveal className="delay-150">

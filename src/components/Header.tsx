@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import pspeIcon from "@/assets/pspe-icon.webp";
 import { NAV_LINKS, SITE } from "@/lib/site";
@@ -9,6 +10,7 @@ import { NAV_LINKS, SITE } from "@/lib/site";
 export default function Header() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
     function onScroll() {
@@ -36,15 +38,25 @@ export default function Header() {
         </Link>
 
         <nav className="hidden items-center gap-5 lg:flex">
-          {NAV_LINKS.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className="text-sm font-medium uppercase tracking-wide text-neutral-300 hover:text-white transition-colors"
-            >
-              {link.label}
-            </Link>
-          ))}
+          {NAV_LINKS.map((link) => {
+            const active = pathname === link.href;
+            return (
+              <Link
+                key={link.href}
+                href={link.href}
+                className={`group relative py-1 text-sm font-medium uppercase tracking-wide transition-colors ${
+                  active ? "text-white" : "text-neutral-300 hover:text-white"
+                }`}
+              >
+                {link.label}
+                <span
+                  className={`absolute -bottom-0.5 left-1/2 h-0.5 bg-amber-500 transition-all duration-300 ${
+                    active ? "left-0 w-full" : "w-0 group-hover:left-0 group-hover:w-full"
+                  }`}
+                />
+              </Link>
+            );
+          })}
         </nav>
 
         <div className="hidden lg:flex items-center gap-3">
@@ -81,17 +93,23 @@ export default function Header() {
       {open && (
         <nav className="lg:hidden border-t border-neutral-800 bg-black px-4 py-4">
           <ul className="flex flex-col gap-4">
-            {NAV_LINKS.map((link) => (
-              <li key={link.href}>
-                <Link
-                  href={link.href}
-                  onClick={() => setOpen(false)}
-                  className="block text-sm font-medium uppercase tracking-wide text-neutral-300 hover:text-white"
-                >
-                  {link.label}
-                </Link>
-              </li>
-            ))}
+            {NAV_LINKS.map((link) => {
+              const active = pathname === link.href;
+              return (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    onClick={() => setOpen(false)}
+                    className={`flex items-center gap-2 text-sm font-medium uppercase tracking-wide ${
+                      active ? "text-amber-400" : "text-neutral-300 hover:text-white"
+                    }`}
+                  >
+                    {active && <span className="h-1 w-1 rounded-full bg-amber-500" />}
+                    {link.label}
+                  </Link>
+                </li>
+              );
+            })}
           </ul>
         </nav>
       )}
