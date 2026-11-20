@@ -1,8 +1,16 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import PhotoPlaceholder from "@/components/PhotoPlaceholder";
 import CTABanner from "@/components/CTABanner";
 import PageHero from "@/components/PageHero";
 import Reveal from "@/components/Reveal";
+import layoutFieldMarking1 from "@/assets/gallery/layout-field-marking-1.jpg";
+import concreteScanning1 from "@/assets/gallery/concrete-scanning-1.jpg";
+import coreDrilling1 from "@/assets/gallery/core-drilling-1.jpg";
+import coreDrilling2 from "@/assets/gallery/core-drilling-2.jpg";
+import coreDrilling3 from "@/assets/gallery/core-drilling-3.jpg";
+import completedOpenings1 from "@/assets/gallery/completed-openings-1.jpg";
+import completedOpenings2 from "@/assets/gallery/completed-openings-2.jpg";
 
 export const metadata: Metadata = {
   title: "Project Gallery",
@@ -11,10 +19,13 @@ export const metadata: Metadata = {
 };
 
 const CATEGORIES = [
-  { title: "Layout / Field Marking", count: 3 },
-  { title: "Concrete Scanning", count: 3 },
-  { title: "Core Drilling", count: 3 },
-  { title: "Completed Openings / Job-Site Work", count: 3 },
+  { title: "Layout / Field Marking", photos: [layoutFieldMarking1, null, null] },
+  { title: "Concrete Scanning", photos: [concreteScanning1, null, null] },
+  { title: "Core Drilling", photos: [coreDrilling1, coreDrilling2, coreDrilling3] },
+  {
+    title: "Completed Openings / Job-Site Work",
+    photos: [completedOpenings1, completedOpenings2, null],
+  },
 ];
 
 export default function GalleryPage() {
@@ -22,7 +33,7 @@ export default function GalleryPage() {
     <>
       <PageHero
         title="Project Gallery"
-        description="Real job-site photos will be added here once provided by PSPE. Confidential plan information, client names, addresses, and project data are not shown without authorization."
+        description="Real job-site photos from PSPE Construction Solutions LLC. More will be added as projects are completed. Confidential plan information, client names, addresses, and project data are not shown without authorization."
       />
 
       <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
@@ -33,13 +44,28 @@ export default function GalleryPage() {
                 {category.title}
               </h2>
               <div className="mt-4 grid gap-4 sm:grid-cols-3">
-                {Array.from({ length: category.count }).map((_, i) => (
-                  <PhotoPlaceholder
-                    key={i}
-                    label={`${category.title} #${i + 1}`}
-                    className="aspect-square overflow-hidden rounded-lg transition-transform duration-300 hover:scale-[1.03] hover:border-amber-500 hover:text-amber-400"
-                  />
-                ))}
+                {category.photos.map((photo, i) =>
+                  photo ? (
+                    <div
+                      key={i}
+                      className="group relative aspect-square overflow-hidden rounded-lg border border-neutral-800"
+                    >
+                      <Image
+                        src={photo}
+                        alt={`${category.title} #${i + 1}`}
+                        fill
+                        className="object-cover transition-transform duration-300 group-hover:scale-105"
+                        sizes="(min-width: 640px) 33vw, 100vw"
+                      />
+                    </div>
+                  ) : (
+                    <PhotoPlaceholder
+                      key={i}
+                      label={`${category.title} #${i + 1}`}
+                      className="aspect-square overflow-hidden rounded-lg transition-transform duration-300 hover:scale-[1.03] hover:border-amber-500 hover:text-amber-400"
+                    />
+                  )
+                )}
               </div>
             </Reveal>
           ))}

@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import CTAButtons from "@/components/CTAButtons";
-import PhotoPlaceholder from "@/components/PhotoPlaceholder";
 import PageHero from "@/components/PageHero";
 import Reveal from "@/components/Reveal";
+import aboutTeam from "@/assets/gallery/about-team.jpg";
 
 export const metadata: Metadata = {
   title: "About Us",
@@ -32,10 +33,15 @@ export default function AboutPage() {
             <CTAButtons className="mt-8" />
           </Reveal>
           <Reveal className="delay-150">
-            <PhotoPlaceholder
-              label="team working / personnel using PPE"
-              className="min-h-[260px] rounded-lg"
-            />
+            <div className="relative min-h-[260px] overflow-hidden rounded-lg border border-neutral-800">
+              <Image
+                src={aboutTeam}
+                alt="PSPE Construction Solutions LLC crew performing core drilling on a job site"
+                fill
+                className="object-cover"
+                sizes="(min-width: 1024px) 50vw, 100vw"
+              />
+            </div>
           </Reveal>
         </div>
       </section>
