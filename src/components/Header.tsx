@@ -50,8 +50,8 @@ export default function Header() {
               >
                 {link.label}
                 <span
-                  className={`absolute -bottom-0.5 left-1/2 h-0.5 bg-amber-500 transition-all duration-300 ${
-                    active ? "left-0 w-full" : "w-0 group-hover:left-0 group-hover:w-full"
+                  className={`absolute -bottom-0.5 h-0.5 bg-amber-500 transition-all duration-300 ${
+                    active ? "left-0 w-full" : "left-1/2 w-0 group-hover:left-0 group-hover:w-full"
                   }`}
                 />
               </Link>
