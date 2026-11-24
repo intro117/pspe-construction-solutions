@@ -98,17 +98,6 @@ export default function QuoteForm() {
 
       <Field label="Requested date or schedule" name="schedule" />
 
-      <div>
-        <label className="block text-sm font-medium text-neutral-300">
-          File upload (plans, photos, or documents — optional)
-        </label>
-        <input
-          type="file"
-          name="attachment"
-          className="mt-1 w-full text-sm text-neutral-400"
-        />
-      </div>
-
       <button
         type="submit"
         disabled={status === "sending"}
