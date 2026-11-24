@@ -10,16 +10,38 @@ const SERVICE_OPTIONS = [
   "Other",
 ];
 
-export default function QuoteForm() {
-  const [submitted, setSubmitted] = useState(false);
+const WEB3FORMS_ACCESS_KEY = "311429a1-abfb-47d9-b71d-bb29420a74b3";
 
-  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+export default function QuoteForm() {
+  const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
+
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    // TODO: connect to Web3Forms/Formspree once PSPE confirms which service to use.
-    setSubmitted(true);
+    setStatus("sending");
+
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+    formData.append("access_key", WEB3FORMS_ACCESS_KEY);
+    formData.append("subject", "New quote request — PSPE Construction Solutions website");
+    formData.append("from_name", "PSPE Construction Solutions website");
+
+    try {
+      const res = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData,
+      });
+      const data = await res.json();
+      if (data.success) {
+        setStatus("sent");
+      } else {
+        setStatus("error");
+      }
+    } catch {
+      setStatus("error");
+    }
   }
 
-  if (submitted) {
+  if (status === "sent") {
     return (
       <div className="rounded-lg border border-green-900 bg-green-950/40 p-6 text-green-300">
         Thank you for contacting PSPE Construction Solutions LLC. We have received
@@ -30,6 +52,12 @@ export default function QuoteForm() {
 
   return (
     <form onSubmit={handleSubmit} className="space-y-5">
+      {status === "error" && (
+        <div className="rounded-lg border border-red-900 bg-red-950/40 p-4 text-sm text-red-300">
+          Something went wrong sending your request. Please try again, or call us
+          directly.
+        </div>
+      )}
       <div className="grid gap-5 sm:grid-cols-2">
         <Field label="Name" name="name" required />
         <Field label="Company" name="company" />
@@ -83,9 +111,10 @@ export default function QuoteForm() {
 
       <button
         type="submit"
-        className="w-full rounded-md bg-amber-500 px-6 py-3 text-sm font-semibold uppercase tracking-wide text-neutral-950 hover:bg-amber-400 transition-colors sm:w-auto"
+        disabled={status === "sending"}
+        className="w-full rounded-md bg-amber-500 px-6 py-3 text-sm font-semibold uppercase tracking-wide text-neutral-950 transition-colors hover:bg-amber-400 disabled:cursor-not-allowed disabled:opacity-60 sm:w-auto"
       >
-        Submit Request
+        {status === "sending" ? "Sending..." : "Submit Request"}
       </button>
     </form>
   );
