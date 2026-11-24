@@ -10,11 +10,13 @@ import layoutFieldMarking3 from "@/assets/gallery/layout-field-marking-3.jpg";
 import concreteScanning1 from "@/assets/gallery/concrete-scanning-1.jpg";
 import concreteScanning2 from "@/assets/gallery/concrete-scanning-2.jpg";
 import concreteScanning3 from "@/assets/gallery/concrete-scanning-3.jpg";
+import concreteScanning4 from "@/assets/gallery/concrete-scanning-4.jpg";
 import coreDrilling1 from "@/assets/gallery/core-drilling-1.jpg";
 import coreDrilling2 from "@/assets/gallery/core-drilling-2.jpg";
 import coreDrilling3 from "@/assets/gallery/core-drilling-3.jpg";
 import completedOpenings1 from "@/assets/gallery/completed-openings-1.jpg";
 import completedOpenings2 from "@/assets/gallery/completed-openings-2.jpg";
+import completedOpenings3 from "@/assets/gallery/completed-openings-3.jpg";
 
 export const metadata: Metadata = {
   title: "Project Gallery",
@@ -29,12 +31,12 @@ const CATEGORIES = [
   },
   {
     title: "Concrete Scanning",
-    photos: [concreteScanning1, concreteScanning2, concreteScanning3],
+    photos: [concreteScanning1, concreteScanning2, concreteScanning3, concreteScanning4],
   },
   { title: "Core Drilling", photos: [coreDrilling1, coreDrilling2, coreDrilling3] },
   {
     title: "Completed Openings / Job-Site Work",
-    photos: [completedOpenings1, completedOpenings2, null],
+    photos: [completedOpenings1, completedOpenings2, completedOpenings3],
   },
 ];
 
